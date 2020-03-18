@@ -63,7 +63,12 @@ public class GameState : MonoBehaviour
 
             if (piece.name.Contains("Queen"))
             {
-                if (true)  // replace that with conditions 
+                if (((origin.i==destination.i)&&(origin.j!=destination.j)||
+                       origin.j==destination.j&&origin.i!=destination.i||
+                       (destination.j==destination.i)&&(destination.i-origin.i==destination.j-origin.j||
+                       origin.i-destination.i == destination.j - origin.j)
+                       &&!destination.piece || destination.piece.name.Contains("Black")))
+                       // replace that with conditions 
                 {
                     return true;
                 }
@@ -72,7 +77,9 @@ public class GameState : MonoBehaviour
 
             if (piece.name.Contains("Bishop"))
             {
-                if (true)  // replace that with conditions 
+                if ((destination.j == destination.i) && (destination.i - origin.i == destination.j - origin.j ||
+                       origin.i - destination.i == destination.j - origin.j)
+                       && !destination.piece || destination.piece.name.Contains("Black"))  // replace that with conditions 
                 {
                     return true;
                 }
